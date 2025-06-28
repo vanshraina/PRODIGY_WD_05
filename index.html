@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Task 05</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-app">
+            <!-- Header Section -->
+            <div class="header">
+                <h1><i class="fas fa-cloud-sun"></i> Weather App</h1>
+                <p>Get current weather conditions for any location</p>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="cityInput" placeholder="Enter city name...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button id="locationBtn" class="location-btn">
+                    <i class="fas fa-map-marker-alt"></i> Use My Location
+                </button>
+            </div>
+
+            <!-- API Setup Section -->
+            <div class="api-setup" id="apiSetup">
+                <div class="api-card">
+                    <i class="fas fa-key"></i>
+                    <h3>API Key Required</h3>
+                    <p>To get live weather data, please enter your OpenWeatherMap API key:</p>
+                    <div class="api-input-container">
+                        <input type="text" id="apiKeyInput" placeholder="Enter your API key here...">
+                        <button id="saveApiKey">Save Key</button>
+                    </div>
+                    <div class="api-help">
+                        <p><strong>How to get your free API key:</strong></p>
+                        <ol>
+                            <li>Visit <a href="https://openweathermap.org/api" target="_blank">OpenWeatherMap API</a></li>
+                            <li>Sign up for a free account</li>
+                            <li>Go to "My API keys" section</li>
+                            <li>Copy your API key and paste it above</li>
+                        </ol>
+                        <button id="useDemoMode" class="demo-btn">
+                            <i class="fas fa-play"></i> Use Demo Mode Instead
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Animation -->
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading weather data...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p id="errorText">Something went wrong. Please try again.</p>
+            </div>
+
+            <!-- Weather Display Section -->
+            <div class="weather-display" id="weatherDisplay">
+                <!-- Current Weather Card -->
+                <div class="current-weather">
+                    <div class="location-info">
+                        <h2 id="cityName">New York</h2>
+                        <p id="countryName">United States</p>
+                        <p id="currentDate">Friday, December 15, 2023</p>
+                    </div>
+                    
+                    <div class="weather-main">
+                        <div class="temperature">
+                            <span id="mainTemp">22°C</span>
+                            <div class="weather-icon">
+                                <i id="weatherIcon" class="fas fa-sun"></i>
+                            </div>
+                        </div>
+                        <div class="weather-description">
+                            <p id="weatherDesc">Sunny</p>
+                            <p id="feelsLike">Feels like 25°C</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather Details Grid -->
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Visibility</h3>
+                        <p id="visibility">10 km</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-tint"></i>
+                        <h3>Humidity</h3>
+                        <p id="humidity">65%</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-wind"></i>
+                        <h3>Wind Speed</h3>
+                        <p id="windSpeed">15 km/h</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h3>Pressure</h3>
+                        <p id="pressure">1013 hPa</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-sun"></i>
+                        <h3>UV Index</h3>
+                        <p id="uvIndex">5</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloudiness</h3>
+                        <p id="cloudiness">20%</p>
+                    </div>
+                </div>
+
+                <!-- Sunrise/Sunset Section -->
+                <div class="sun-times">
+                    <div class="sun-time">
+                        <i class="fas fa-sun"></i>
+                        <div>
+                            <h4>Sunrise</h4>
+                            <p id="sunrise">06:30 AM</p>
+                        </div>
+                    </div>
+                    <div class="sun-time">
+                        <i class="fas fa-moon"></i>
+                        <div>
+                            <h4>Sunset</h4>
+                            <p id="sunset">07:45 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
